@@ -1,7 +1,12 @@
-describe("test app component", () => {
-  test("1 + 1 should be 2", () => {
-    const sum = 1 + 1;
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-    expect(sum).toBe(2);
+describe("test app component", () => {
+  test("should have a title on the page", async () => {
+    render(<App />);
+
+    const title = await screen.findByRole("heading");
+
+    expect(title).toBeInTheDocument();
   });
 });
