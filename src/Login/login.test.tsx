@@ -1,7 +1,17 @@
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import Login from "./Login"
+import { vi } from "vitest";
+
+const navigationMock = vi.fn()
 
 describe("login page tester", () => {
+    vi.mock('react-router-dom', () => ({
+        useNavigate() {
+            return navigationMock
+        }
+    }))
+
+
     test("should have a h1 with Hello World", async () => {
         render(<Login />)
         const text = await screen.findByRole("heading", {
@@ -33,4 +43,13 @@ describe("login page tester", () => {
         const input = await screen.findByPlaceholderText("Insira sua senha")
         expect(input).toBeInTheDocument()
     })
+
+    test("should input to senha", async () => {
+        render(<Login />)
+        const button = await screen.findByRole("button")
+        fireEvent.click(button)
+        expect(navigationMock).toHaveBeenCalledTimes(1)
+    })
+
+   
 })
