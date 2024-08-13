@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/Login/Login.tsx</title>
+    <title>Code coverage report for src/SignUp/SignUp.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Login</a> Login.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/SignUp</a> SignUp.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -84,7 +84,11 @@
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -93,39 +97,47 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 &nbsp;
-export default function Login() {
+function SignUp() {
   const navigate = useNavigate();
-  const handdleSubmit = (event: FormEvent) =&gt; {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    navigate("/dashboard");
-  };
-&nbsp;
+    navigate("/login");
+  }
   return (
-    &lt;div&gt;
-      &lt;h1&gt;Hello World&lt;/h1&gt;
-      &lt;form onSubmit={handdleSubmit}&gt;
-        &lt;input type="text" name="email" placeholder="Insira seu email" /&gt;
-        &lt;input type="text" name="senha" placeholder="Insira sua senha" /&gt;
-        &lt;button&gt;Enviar&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
+    &lt;&gt;
+      &lt;div&gt;
+        &lt;h1&gt;SignUp&lt;/h1&gt;
+        &lt;form action="" onSubmit={handleSubmit}&gt;
+          &lt;input type="text" placeholder="nome" /&gt;
+          &lt;input type="text" placeholder="email" /&gt;
+          &lt;input type="text" placeholder="senha" /&gt;
+          &lt;button&gt;Entrar&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
   );
 }
+&nbsp;
+export default SignUp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -16,6 +17,7 @@ function SignUp() {
           <input type="text" placeholder="email" />
           <input type="text" placeholder="senha" />
           <button>Entrar</button>
+          <Link to={"/"}>Ja tem cadastro?</Link>
         </form>
       </div>
     </>

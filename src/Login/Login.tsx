@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -15,6 +16,7 @@ export default function Login() {
         <input type="text" name="email" placeholder="Insira seu email" />
         <input type="text" name="senha" placeholder="Insira sua senha" />
         <button>Enviar</button>
+        <Link to={"/signup"}>Não tem conta? </Link>
       </form>
     </div>
   );

@@ -2,15 +2,18 @@ import { fireEvent, render, screen } from "@testing-library/react"
 import Login from "./Login"
 import { vi } from "vitest";
 
+
 const navigationMock = vi.fn()
 
 describe("login page tester", () => {
     vi.mock('react-router-dom', () => ({
         useNavigate() {
             return navigationMock
-        }
+        },
+        Link: vi.fn().mockImplementation((props)=> props.children)
     }))
 
+    
 
     test("should have a h1 with Hello World", async () => {
         render(<Login />)

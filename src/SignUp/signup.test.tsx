@@ -9,6 +9,8 @@ describe("signup page test", () => {
     useNavigate() {
       return navigationMock;
     },
+    Link: vi.fn().mockImplementation((props)=> props.children)
+
   }));
 
   test("should have a title called SignUp", async () => {
