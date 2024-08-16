@@ -1,9 +1,35 @@
+import { useEffect, useState } from "react";
+import { PokeType } from "../types";
 
-export default function Dashboard() {
+interface props {
+  pokeData: () => Promise<PokeType[]>;
+}
 
-    return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
-    )
+export default function Dashboard({ pokeData }: props) {
+  const [pokemons, setPokemons] = useState<PokeType[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await pokeData();
+      setPokemons(data);
+    })();
+  }, []);
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      <ul>
+        {pokemons.map((poke) => {
+          return (
+            <li key={poke.id}>
+              <strong>{poke.type}</strong>
+              <h2>{poke.name}</h2>
+              <img src={poke.image} alt="" />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }

@@ -2,14 +2,25 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
 import SignUp from "./SignUp/SignUp";
+import PokeApiData from "./services/PokeApiData";
 
 export default function MainRouters() {
   return (
     <Routes>
       <Route path="/" element={<Login />}></Route>
-      <Route path="/dashboard" element={<Dashboard />}></Route>
+      <Route
+        path="/dashboard"
+        element={<Dashboard pokeData={PokeApiData} />}
+      ></Route>
       <Route path="/signup" element={<SignUp />}></Route>
-      <Route path="/*" element={<><h1>404 Page Not Found"</h1></>}></Route>
+      <Route
+        path="/*"
+        element={
+          <>
+            <h1>404 Page Not Found"</h1>
+          </>
+        }
+      ></Route>
     </Routes>
   );
 }
