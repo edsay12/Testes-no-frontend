@@ -1,7 +1,7 @@
 import { vi } from "vitest";
 import Dashboard from "./Dashboard";
 import { render, screen } from "@testing-library/react";
-import PokeApiData from "../services/PokeApiData";
+import PokeApiData from "../../services/PokeApiData";
 
 const mockApiData = vi.fn(PokeApiData).mockImplementation(async () => {
   return [

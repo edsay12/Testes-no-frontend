@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "./Login/Login";
-import Dashboard from "./Dashboard/Dashboard";
-import SignUp from "./SignUp/SignUp";
-import PokeApiData from "./services/PokeApiData";
+import Login from "./pages/Login/Login";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import SignUp from "./pages/SignUp/SignUp";
+import { FetchPokeDetail, PokeApiData } from "./services/PokeApiData";
+import PokeDetails from "./pages/PokeDetails/pokeDetails";
 
 export default function MainRouters() {
   return (
@@ -14,6 +15,12 @@ export default function MainRouters() {
       ></Route>
       <Route path="/signup" element={<SignUp />}></Route>
       <Route
+        path="/pokemonDetails/:id"
+        element={
+          <PokeDetails FetchPokeDetail={FetchPokeDetail} />
+        }
+      ></Route>
+      <Route
         path="/*"
         element={
           <>
@@ -21,6 +28,7 @@ export default function MainRouters() {
           </>
         }
       ></Route>
+
     </Routes>
   );
 }

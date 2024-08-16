@@ -1,9 +1,13 @@
 import { PokeType } from "../types";
 
-async function PokeApiData(): Promise<PokeType[]> {
+export async function PokeApiData(): Promise<PokeType[]> {
   const response = await fetch("http://localhost:3000/pokemon");
   const data = response.json();
   return data;
 }
 
-export default PokeApiData;
+export async function FetchPokeDetail(id: string) {
+  const response = await fetch(`http://localhost:3000/pokemon/${id}`)
+  const data = response.json()
+  return data
+}
