@@ -9,9 +9,7 @@ interface props {
 export default function Dashboard({ pokeData }: props) {
   const navigate = useNavigate()
   const [pokemons, setPokemons] = useState<PokeType[]>([]);
-  function RedirectToPokeDetails() {
-
-  }
+  
 
   useEffect(() => {
     (async () => {

@@ -9,6 +9,7 @@ interface PokeDatailsProps {
 }
 export default function PokeDetails({ FetchPokeDetail }: PokeDatailsProps) {
     const params = useParams()
+    const [error,setError] = useState("")
     const [pokemon, setPokemon] = useState<PokeType>({
         id: '',
         image: '',
@@ -16,9 +17,13 @@ export default function PokeDetails({ FetchPokeDetail }: PokeDatailsProps) {
         type: ''
     })
 
+    
+
     useEffect(() => {
         (async () => {
+            setError("")
             if (!params.id || params.id === "0") {
+                setError("O id não e valido")
                 return;
             }
             const data = await FetchPokeDetail(params.id)
@@ -33,6 +38,7 @@ export default function PokeDetails({ FetchPokeDetail }: PokeDatailsProps) {
                 <img src={pokemon.image} alt={pokemon.name} />
                 <strong>{pokemon.type}</strong>
                 <Link to={"/dashboard"} />
+                {error && <strong>{error}</strong>}
             </div>
         </div>
     )
