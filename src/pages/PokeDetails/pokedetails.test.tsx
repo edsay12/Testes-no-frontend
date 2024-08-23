@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import PokeDetails from "./pokeDetails";
 import { FetchPokeDetail } from "../../services/PokeApiData";
 import { vi } from "vitest";
+import * as rrd from "react-router-dom";
 
 const mockapidatapokedetais = vi
   .fn(FetchPokeDetail)
@@ -29,11 +30,10 @@ describe("shold test pokedetaispage", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  test("shoul valid if dont have params id ", async () => {
+  test("should valid if dont have params id ", async () => {
+    vi.spyOn(rrd, "useParams").mockImplementation(() => ({ id: "0" }));
     render(<PokeDetails FetchPokeDetail={mockapidatapokedetais} />);
-    const errotest = await screen.findByText("O id não e valido")
-    expect(errotest).toBe("O id não e valido")
+    const errotest = await screen.findByText("O id não e valido");
+    expect(errotest).toBeInTheDocument();
   });
-
- 
 });

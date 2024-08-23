@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import Dashboard from "./Dashboard";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import {PokeApiData} from "../../services/PokeApiData";
 
 const mockApiData = vi.fn(PokeApiData).mockImplementation(async () => {
@@ -14,7 +14,7 @@ const mockApiData = vi.fn(PokeApiData).mockImplementation(async () => {
     {
       id: "1",
       image: "asd",
-      name: "Charmander",
+      name: "Charmander2",
       type: "Fogo",
     },
   ];
@@ -33,5 +33,11 @@ describe("test dashboard component", () => {
     render(<Dashboard pokeData={mockApiData} />);
     const itens = await screen.findAllByRole("listitem");
     expect(itens).toHaveLength(2);
+  });
+  test("li shold rediret to other page when clicked", async () => {
+    render(<Dashboard pokeData={mockApiData} />);
+    const itens = await screen.findByText("Charmander")
+    fireEvent.click(itens)
+    expect(navigationMock).toHaveBeenCalledTimes(1)
   });
 });
