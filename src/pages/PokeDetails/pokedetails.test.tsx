@@ -1,39 +1,39 @@
+import { render, screen } from "@testing-library/react";
+import PokeDetails from "./pokeDetails";
 import { FetchPokeDetail } from "../../services/PokeApiData";
-import PokeDetails from "./pokeDetails"
 import { vi } from "vitest";
-import { render, screen } from "@testing-library/react"
-import { useParams } from "react-router-dom";
 
-
-
-
-
-const mockApiData = vi.fn(FetchPokeDetail).mockImplementation(async () => {
+const mockapidatapokedetais = vi
+  .fn(FetchPokeDetail)
+  .mockImplementation(async () => {
     return {
-        id: "1",
-        image: "asd",
-        name: "Charmander",
-        type: "Fogo",
-    }
+      id: "1",
+      image: "asd",
+      name: "Charmander",
+      type: "Fogo",
+    };
+  });
 
+describe("shold test pokedetaispage", () => {
+  vi.mock("react-router-dom", () => ({
+    useParams: () => ({
+      id: 1,
+    }),
+
+    Link: vi.fn().mockImplementation((props) => props.children),
+  }));
+
+  test("should test pokeapidetais fetch function", async () => {
+    render(<PokeDetails FetchPokeDetail={mockapidatapokedetais} />);
+    const heading = await screen.findByText("Charmander");
+    expect(heading).toBeInTheDocument();
+  });
+
+  test("shoul valid if dont have params id ", async () => {
+    render(<PokeDetails FetchPokeDetail={mockapidatapokedetais} />);
+    const errotest = await screen.findByText("O id não e valido")
+    expect(errotest).toBe("O id não e valido")
+  });
+
+ 
 });
-
-
-
-describe("shold teste pokedetails page", () => {
-    vi.mock("react-router-dom", () => {
-        return {
-            useParams: () => ({
-                id: 1
-            }),
-            Link: vi.fn().mockImplementation((props) => props.children)
-        }
-    })
-
-    render(<PokeDetails FetchPokeDetail={mockApiData} />)
-    test("shold have a title in the page", async () => {
-        const title = await screen.findByText("Charmander")
-        expect(title).toBeInTheDocument()
-
-    })
-})
