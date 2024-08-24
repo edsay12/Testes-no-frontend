@@ -8,6 +8,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    "allowJs": true,
+    "baseUrl": "../node_modules",
+    "types": ["cypress"],
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -23,5 +27,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["**/*.*"]
 }

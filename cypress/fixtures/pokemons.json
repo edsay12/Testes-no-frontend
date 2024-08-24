@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Pikachu",
+    "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+    "type": "Electric"
+  },
+  {
+    "id": 2,
+    "name": "Pikachu2",
+    "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+    "type": "Electric"
+  }
+]
